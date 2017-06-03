@@ -17,13 +17,24 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
-                @foreach ($replies as $reply)
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            {{ $reply->body  }}
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Replies</div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            @foreach ($thread->replies as $reply)
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">{{ $reply->created_at->diffForHumans()  }}</div>
+                                    <div class="panel-body">
+                                        {{ $reply->body  }}
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
-                @endforeach
+                </div>
 
             </div>
         </div>
