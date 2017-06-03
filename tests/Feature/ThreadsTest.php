@@ -10,7 +10,7 @@ class ThreadsTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
-    public function a_user_can_browse_threads()
+    public function a_user_can_view_all_threads()
     {
         $thread = factory('App\Thread')->create();
 
@@ -20,7 +20,7 @@ class ThreadsTest extends TestCase
     }
 
     /** @test */
-    public function a_user_can_browse_individual_thread()
+    public function a_user_can_read_a_single_thread()
     {
         $thread = factory('App\Thread')->create();
 
