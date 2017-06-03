@@ -18,4 +18,14 @@ class ThreadsTest extends TestCase
 
         $response->assertSee($thread->title);
     }
+
+    /** @test */
+    public function a_user_can_browse_individual_thread()
+    {
+        $thread = factory('App\Thread')->create();
+
+        $response = $this->get('/threads/' . $thread->id);
+
+        $response->assertSee($thread->title);
+    }
 }
