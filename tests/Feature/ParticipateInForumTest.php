@@ -15,12 +15,7 @@ class ParticipateInForumTest extends TestCase
         // This test expects an Authentication Exception
         $this->expectException('Illuminate\Auth\AuthenticationException');
 
-        // And an existing thread.
-        $thread = factory('App\Thread')->create();
-
-        // When the user adds a reply to the thread.
-        $reply = factory('App\Reply')->create();
-        $this->post($thread->path() . '/replies', $reply->toArray());
+        $this->post('/threads/1/replies', []);
     }
 
     /** @test */
