@@ -22,7 +22,7 @@ class ParticipateInForumTest extends TestCase
     public function an_authenticated_user_may_participate_in_forum_threads()
     {
         // Given an authenticated user.
-        $this->signIn($user = create('App\User'));
+        $this->signIn();
 
         // And an existing thread.
         $thread = create('App\Thread');
