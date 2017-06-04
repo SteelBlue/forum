@@ -8,7 +8,7 @@
                     <div class="panel-heading">Create a New Thread</div>
 
                     <div class="panel-body">
-                        <form>
+                        <form method="POST" action="/threads">
                             <div class="form-group">
                                 <label for="title">Title</label>
                                 <input type="text" name="title" id="title" class="form-control">
