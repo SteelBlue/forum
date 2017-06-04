@@ -25,6 +25,20 @@
 
                     <br>
 
+                    @if (auth()->check())
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <form>
+                                <div class="form-group">
+                                    <label></label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <br>
+                    @endif
+
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             @foreach ($thread->replies as $reply)
