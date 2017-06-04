@@ -52,7 +52,7 @@
                             </div>
                         </div>
                     @else
-                        <p>Please <a href="{{ route('login') }}">sign in</a> to participate in this discussion.</p>
+                        <p class="text-center">Please <a href="{{ route('login') }}">sign in</a> to participate in this discussion.</p>
                     @endif
                 </div>
 
