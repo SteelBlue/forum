@@ -25,20 +25,6 @@
 
                     <br>
 
-                    @if (auth()->check())
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <form>
-                                <div class="form-group">
-                                    <label></label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <br>
-                    @endif
-
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             @foreach ($thread->replies as $reply)
@@ -46,6 +32,26 @@
                             @endforeach
                         </div>
                     </div>
+
+                    @if (auth()->check())
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <form method="POST" action="{{ $thread->path() . '/replies' }}">
+                                    {{ csrf_field() }}
+                                    
+                                    <div class="form-group">
+                                        <textarea name="body" id="body" class="form-control" rows="5" placeholder="Have something to say?"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Reply</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    @endif
                 </div>
 
             </div>
