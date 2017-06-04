@@ -9,13 +9,20 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ParticipateInForum extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    /** @test */
+    public function an_authenticated_user_may_participate_in_forum_threads()
     {
-        $this->assertTrue(true);
+        // Given an authenticated user.
+        $this->signIn($user = factory('App\User')->create());
+
+        // And an existing thread.
+        $thread = factory('App\Thread')->create();
+
+        // When the user adds a reply to the thread.
+        $reply = factory('App\Reply')->create();
+        $this->post('/threads/' . $thread->id . '/replies', $reply->toArray());
+
+        // Then their reply should be visible on the page.
+        $this->get($thread->path());
     }
 }

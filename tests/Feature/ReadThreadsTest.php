@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ThreadsTest extends TestCase
+class ReadThreadsTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -14,18 +14,6 @@ class ThreadsTest extends TestCase
         parent::setUp();
 
         $this->thread = factory('App\Thread')->create();
-    }
-
-    /** @test */
-    public function a_thread_has_replies()
-    {
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->thread->replies);
-    }
-
-    /** @test */
-    public function a_thread_has_an_owner()
-    {
-        $this->assertInstanceOf('App\User', $this->thread->owner);
     }
 
     /** @test */
