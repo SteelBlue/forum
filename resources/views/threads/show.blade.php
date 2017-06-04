@@ -27,9 +27,13 @@
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            @foreach ($thread->replies as $reply)
-                                @include ('threads.partials.reply')
-                            @endforeach
+                            @if (count($thread->replies))
+                                @foreach ($thread->replies as $reply)
+                                    @include ('threads.partials.reply')
+                                @endforeach
+                            @else
+                                <span>Currently there are not replies to this thread.</span>
+                            @endif
                         </div>
                     </div>
 
