@@ -40,7 +40,7 @@
                             <div class="col-md-10 col-md-offset-1">
                                 <form method="POST" action="{{ $thread->path() . '/replies' }}">
                                     {{ csrf_field() }}
-                                    
+
                                     <div class="form-group">
                                         <textarea name="body" id="body" class="form-control" rows="5" placeholder="Have something to say?"></textarea>
                                     </div>
