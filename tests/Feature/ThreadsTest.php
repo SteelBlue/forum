@@ -23,6 +23,12 @@ class ThreadsTest extends TestCase
     }
 
     /** @test */
+    public function a_thread_has_an_owner()
+    {
+        $this->assertInstanceOf('App\User', $this->thread->owner);
+    }
+
+    /** @test */
     public function a_user_can_view_all_threads()
     {
         $this->get('/threads')
