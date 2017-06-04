@@ -37,5 +37,7 @@ class ThreadTest extends TestCase
             'body' => 'Foobar',
             'user_id' => 1
         ]);
+
+        $this->assertCount(1, $this->thread->replies);
     }
 }
