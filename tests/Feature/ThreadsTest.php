@@ -17,6 +17,12 @@ class ThreadsTest extends TestCase
     }
 
     /** @test */
+    public function a_thread_has_replies()
+    {
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->thread->replies);
+    }
+
+    /** @test */
     public function a_user_can_view_all_threads()
     {
         $this->get('/threads')
