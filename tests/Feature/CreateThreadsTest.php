@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class CreateThreadTest extends TestCase
+class CreateThreadsTest extends TestCase
 {
     use DatabaseMigrations;
 
