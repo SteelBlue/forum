@@ -46,7 +46,7 @@ class CreateThreadsTest extends TestCase
     public function a_thread_requires_a_title()
     {
         $this->withExceptionHandling();
-        
+
         $this->signIn();
 
         $thread = make('App\Thread', ['title' => null]);
