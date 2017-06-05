@@ -8,18 +8,22 @@
                     <div class="panel-heading">Threads</div>
 
                     <div class="panel-body">
-                        @foreach ($threads as $thread)
-                            <article>
-                                <h4>
-                                    <a href="{{ $thread->path() }}">
-                                        {{ $thread->title }}
-                                    </a>
-                                </h4>
-                                <div class="body">{{ $thread->body  }}</div>
-                            </article>
+                        @if (count($threads))
+                            @foreach ($threads as $thread)
+                                <article>
+                                    <h4>
+                                        <a href="{{ $thread->path() }}">
+                                            {{ $thread->title }}
+                                        </a>
+                                    </h4>
+                                    <div class="body">{{ $thread->body  }}</div>
+                                </article>
 
-                            <hr>
-                        @endforeach
+                                <hr>
+                            @endforeach
+                        @else
+                            <span>Currently there are no threads available.</span>
+                        @endif
                     </div>
                 </div>
             </div>
