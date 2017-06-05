@@ -36,6 +36,15 @@ $factory->define(App\Thread::class, function(Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Channel::class, function(Faker\Generator $faker) {
+    $name = $faker->word;
+
+    return [
+        'name' => $name,
+        'slug' => $name
+    ];
+});
+
 $factory->define(App\Reply::class, function(Faker\Generator $faker) {
     return [
         'thread_id' => function() {
