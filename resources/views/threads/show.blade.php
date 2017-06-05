@@ -57,7 +57,7 @@
                         </div>
                     @else
                         <div class="panel-footer">
-                            <p class="text-center">Please <a href="{{ route('login') }}">sign in</a> to participate in this discussion.</p>
+                            <span class="text-center center-block">Please <a href="{{ route('login') }}">sign in</a> to participate in this discussion.</span>
                         </div>
                     @endif
                 </div>
