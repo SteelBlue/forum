@@ -32,7 +32,7 @@
                                     @include ('threads.partials.reply')
                                 @endforeach
                             @else
-                                <span>Currently there are not replies to this thread.</span>
+                                <p>Currently there are not replies to this thread.</p>
                             @endif
                         </div>
                     </div>
@@ -56,7 +56,9 @@
                             </div>
                         </div>
                     @else
-                        <p class="text-center">Please <a href="{{ route('login') }}">sign in</a> to participate in this discussion.</p>
+                        <div class="panel-footer">
+                            <p class="text-center">Please <a href="{{ route('login') }}">sign in</a> to participate in this discussion.</p>
+                        </div>
                     @endif
                 </div>
 
