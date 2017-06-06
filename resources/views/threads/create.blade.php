@@ -14,6 +14,13 @@
                             {{ csrf_field() }}
 
                             <div class="form-group">
+                                <label for="channel_id">Choose a Channel</label>
+                                <select id="channel_id" name="channel_id" class="form-control">
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="title">Title</label>
                                 <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}">
                             </div>
