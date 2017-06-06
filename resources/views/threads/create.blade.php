@@ -8,6 +8,8 @@
                     <div class="panel-heading">Create a New Thread</div>
 
                     <div class="panel-body">
+                        @include ('layouts.partials.errors')
+                        
                         <form method="POST" action="/threads">
                             {{ csrf_field() }}
 
