@@ -15,22 +15,26 @@
 
                             <div class="form-group">
                                 <label for="channel_id">Choose a Channel</label>
-                                <select id="channel_id" name="channel_id" class="form-control">
-                                    <option disabled {{ old('channel_id') ? '' : 'selected' }}>Choose One</option>
+                                <select id="channel_id" name="channel_id" class="form-control" required>
+                                    <option value="" disabled {{ old('channel_id') ? '' : 'selected' }}>
+                                        Choose One
+                                    </option>
                                     @foreach (App\Channel::all() as $channel)
-                                        <option value="{{ $channel->id }}" {{ old('channel_id') == $channel->id ? 'selected' : '' }}>{{ $channel->slug }}</option>
+                                        <option value="{{ $channel->id }}" {{ old('channel_id') == $channel->id ? 'selected' : '' }}>
+                                            {{ $channel->slug }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}">
+                                <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" required>
                             </div>
 
                             <div class="form-group">
                                 <lable for="body">Body</lable>
-                                <textarea id="body" class="form-control" name="body" rows="8">{{ old('body') }}</textarea>
+                                <textarea id="body" class="form-control" name="body" rows="8" required>{{ old('body') }}</textarea>
                             </div>
 
                             <div class="form-group">
