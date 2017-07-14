@@ -32,8 +32,9 @@ class ThreadsController extends Controller
             // Fetch the threads, sorted by latest.
             $threads = Thread::latest();
         }
-        // Get the Threads.
-        $threads = Thread::filter($filters)->get();
+
+        // Get the Threads, with filters.
+        $threads = $threads->filter($filters)->get();
 
         return $threads;
 
