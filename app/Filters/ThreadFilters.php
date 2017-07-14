@@ -33,6 +33,19 @@ class ThreadFilters
         if (! $username = $this->request->by) return $builder;
 
         // Apply filter for user created threads.
+        return $this->by($builder, $username);
+
+    }
+
+    /**
+     * Filters threads by username.
+     *
+     * @param $builder
+     * @param $username
+     * @return mixed
+     */
+    public function by($builder, $username)
+    {
         // Get the User from the $username.
         $user = User::where('name', $username)->firstOrFail();
 
