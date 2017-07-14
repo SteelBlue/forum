@@ -10,8 +10,8 @@ class ThreadFilters
     /**
      * @var Request
      */
-    private $request;
-
+    protected $request;
+    protected $builder;
 
     /**
      * ThreadFilters constructor.
@@ -29,11 +29,13 @@ class ThreadFilters
      */
     public function apply($builder)
     {
+        $this->builder = $builder;
+
         // Check if query by username.
         if (! $username = $this->request->by) return $builder;
 
         // Apply filter for user created threads.
-        return $this->by($builder, $username);
+        return $this->by($username);
 
     }
 
@@ -44,12 +46,12 @@ class ThreadFilters
      * @param $username
      * @return mixed
      */
-    public function by($builder, $username)
+    public function by($username)
     {
         // Get the User from the $username.
         $user = User::where('name', $username)->firstOrFail();
 
         // Fetch the threads, by a user.
-        return $builder->where('user_id', $user->id);
+        return $this->builder->where('user_id', $user->id);
     }
 }
