@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ThreadFilters extends Filters
 {
+    protected $filters = ['by'];
     /**
      * Filter the query by a given username.
      *
