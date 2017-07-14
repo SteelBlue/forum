@@ -42,7 +42,6 @@ class ThreadFilters
     /**
      * Filters threads by username.
      *
-     * @param $builder
      * @param $username
      * @return mixed
      */
