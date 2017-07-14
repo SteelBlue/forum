@@ -137,7 +137,7 @@ class ThreadsController extends Controller
 
         // Get the threads.
         $threads = $threads->get();
-        
+
         return $threads;
     }
 }
