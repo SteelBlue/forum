@@ -128,13 +128,7 @@ class ThreadsController extends Controller
         }
 
         // if request('by'), filter by the given username.
-        if ($username = request('by')) {
-            // Get the User from the $username.
-            $user = User::where('name', $username)->firstOrFail();
 
-            // Fetch the threads, by a user.
-            $threads->where('user_id', $user->id);
-        }
 
         // Get the threads.
         $threads = $threads->get();
