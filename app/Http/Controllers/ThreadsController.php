@@ -24,9 +24,6 @@ class ThreadsController extends Controller
      */
     public function index(Channel $channel, ThreadFilters $filters)
     {
-        // Get the Threads.
-        $threads = Thread::filter($filters)->get();
-
         // Check is a Channel exists.
         if ($channel->exists) {
             // Fetch the threads, by channel, sorted by latest.
@@ -35,9 +32,8 @@ class ThreadsController extends Controller
             // Fetch the threads, sorted by latest.
             $threads = Thread::latest();
         }
-
-        // Get the threads.
-        $threads = $threads->get();
+        // Get the Threads.
+        $threads = Thread::filter($filters)->get();
 
         return $threads;
 
