@@ -27,14 +27,19 @@
 
                                 {{-- Thread Channel Dropdown --}}
                                 <select id="channel_id" name="channel_id" class="form-control" required>
-                                    <option value="" disabled {{ old('channel_id') ? '' : 'selected' }}>
+
+                                    <option value="" {{ old('channel_id') ? '' : 'selected' }} disabled>
                                         Choose One
                                     </option>
+
+                                    {{-- Loop Existing Channels --}}
                                     @foreach (App\Channel::all() as $channel)
                                         <option value="{{ $channel->id }}" {{ old('channel_id') == $channel->id ? 'selected' : '' }}>
                                             {{ $channel->slug }}
                                         </option>
                                     @endforeach
+                                    {{-- END Loop Existing Channels --}}
+
                                 </select>
                                 {{-- END Thread Channel Dropdown--}}
                             </div>
