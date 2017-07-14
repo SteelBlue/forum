@@ -34,7 +34,7 @@ abstract class Filters
         // Loop through filters.
         foreach($this->getFilters() as $filter) {
             // Check if the method exists.
-            if ($this->hasFilter($filter)) {
+            if (method_exists($this, $filter)) {
                 $this->$filter($this->request->$filter);
             }
         }
@@ -45,14 +45,5 @@ abstract class Filters
     public function getFilters()
     {
         return $this->request->only($this->filters);
-    }
-
-    /**
-     * @param $filter
-     * @return bool
-     */
-    public function hasFilter($filter)
-    {
-        return method_exists($this, $filter) && $this->request->has($filter);
     }
 }
