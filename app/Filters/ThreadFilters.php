@@ -31,12 +31,12 @@ class ThreadFilters
     {
         $this->builder = $builder;
 
-        // Check if query by username.
-        if (! $username = $this->request->by) return $builder;
+        // Check if filter by username.
+        if ($this->request->has('by')) {
+            $this->by($this->request-by);
+        }
 
-        // Apply filter for user created threads.
-        return $this->by($username);
-
+        return $this->builder;
     }
 
     /**
