@@ -33,7 +33,7 @@ class ThreadFilters
 
         // Check if filter by username.
         if ($this->request->has('by')) {
-            $this->by($this->request-by);
+            $this->by($this->request->by);
         }
 
         return $this->builder;
