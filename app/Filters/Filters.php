@@ -11,6 +11,8 @@ abstract class Filters
      */
     protected $request, $builder;
 
+    protected $filters = [];
+
     /**
      * ThreadFilters constructor.
      */
@@ -29,9 +31,12 @@ abstract class Filters
     {
         $this->builder = $builder;
 
-        // Check if filter by username.
-        if ($this->request->has('by')) {
-            $this->by($this->request->by);
+        // Loop through filters.
+        foreach($this->filters as $filter) {
+            // Check if the method exists.
+            if (method_exists($this, $filter)) {
+                $this->filter($this->request->$filter);
+            }
         }
 
         return $this->builder;
