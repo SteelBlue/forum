@@ -35,9 +35,7 @@ class ThreadsController extends Controller
 
         // Get the Threads, with filters.
         $threads = $threads->filter($filters)->get();
-
-        return $threads;
-
+        
         return view('threads.index', compact('threads'));
     }
 
