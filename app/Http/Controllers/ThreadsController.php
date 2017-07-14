@@ -24,18 +24,17 @@ class ThreadsController extends Controller
      */
     public function index(Channel $channel, ThreadFilters $filters)
     {
-        // Check is a Channel exists.
+        // Fetch latest threads, sorted by latest.
+        $threads = Thread::latest();
+
+        // Fetch threads by channel.
         if ($channel->exists) {
-            // Fetch the threads, by channel, sorted by latest.
-            $threads = $channel->threads()->latest();
-        } else {
-            // Fetch the threads, sorted by latest.
-            $threads = Thread::latest();
+            $threads->where('channel_id', $channel->id);
         }
 
         // Get the Threads, with filters.
         $threads = $threads->filter($filters)->get();
-        
+
         return view('threads.index', compact('threads'));
     }
 
