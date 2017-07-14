@@ -111,7 +111,7 @@ class ThreadsController extends Controller
 
     /**
      * Get the Threads to display.
-     * 
+     *
      * @param Channel $channel
      * @return mixed
      */
@@ -137,6 +137,7 @@ class ThreadsController extends Controller
 
         // Get the threads.
         $threads = $threads->get();
+        
         return $threads;
     }
 }
