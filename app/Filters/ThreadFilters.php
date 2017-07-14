@@ -29,13 +29,14 @@ class ThreadFilters
      */
     public function apply($builder)
     {
-        // Apply filter for user created threads.
-        if ($username = $this->request->by) {
-            // Get the User from the $username.
-            $user = User::where('name', $username)->firstOrFail();
+        // Check if query by username.
+        if (! $username = $this->request->by) return $builder;
 
-            // Fetch the threads, by a user.
-            return $builder->where('user_id', $user->id);
-        }
+        // Apply filter for user created threads.
+        // Get the User from the $username.
+        $user = User::where('name', $username)->firstOrFail();
+
+        // Fetch the threads, by a user.
+        return $builder->where('user_id', $user->id);
     }
 }
