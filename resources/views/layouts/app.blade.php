@@ -47,11 +47,15 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Channels <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                @foreach(App\Channel::all() as $channel)
+                                @forelse(App\Channel::all() as $channel)
                                     <li>
                                         <a href="/threads/{{ $channel->slug }}">{{ $channel->name }}</a>
                                     </li>
-                                @endforeach
+                                @empty
+                                    <li>
+                                        <a>No Channels Currently...</a>
+                                    </li>
+                                @endforelse
                             </ul>
                         </li>
                     </ul>
