@@ -47,7 +47,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Channels <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                @forelse(App\Channel::all() as $channel)
+                                @forelse($channels as $channel)
                                     <li>
                                         <a href="/threads/{{ $channel->slug }}">{{ $channel->name }}</a>
                                     </li>
