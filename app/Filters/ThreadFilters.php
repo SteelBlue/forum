@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class ThreadFilters extends Filters
 {
     /**
-     * Filters threads by username.
+     * Filter the query by a given username.
      *
-     * @param $username
+     * @param  string $username
      * @return mixed
      */
     public function by($username)
