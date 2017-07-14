@@ -21,6 +21,12 @@ class ThreadFilters
         $this->request = $request;
     }
 
+    /**
+     * Apply filters to threads query.
+     *
+     * @param $builder
+     * @return mixed
+     */
     public function apply($builder)
     {
         // Apply filter for user created threads.
