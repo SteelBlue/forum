@@ -9,8 +9,7 @@ abstract class Filters
     /**
      * @var Request
      */
-    protected $request;
-    protected $builder;
+    protected $request, $builder;
 
     /**
      * ThreadFilters constructor.
