@@ -32,7 +32,7 @@ abstract class Filters
         $this->builder = $builder;
 
         // Loop through filters.
-        foreach($this->filters as $filter) {
+        foreach($this->getFilters() as $filter) {
             // Check if the method exists.
             if ($this->hasFilter($filter)) {
                 $this->$filter($this->request->$filter);
@@ -40,6 +40,11 @@ abstract class Filters
         }
 
         return $this->builder;
+    }
+
+    public function getFilters()
+    {
+        return $this->request->only($this->filters);
     }
 
     /**
