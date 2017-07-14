@@ -23,9 +23,12 @@ class ThreadsController extends Controller
      */
     public function index(Channel $channel)
     {
+        // Check is a Channel exists.
         if ($channel->exists) {
+            // Fetch the threads, by channel, sorted by latest.
             $threads = $channel->threads()->latest();
         } else {
+            // Fetch the threads, sorted by latest.
             $threads = Thread::latest();
         }
 
@@ -34,9 +37,11 @@ class ThreadsController extends Controller
             // Get the User from the $username.
             $user = User::where('name', $username)->firstOrFail();
 
+            // Fetch the threads, by a user.
             $threads->where('user_id', $user->id);
         }
 
+        // Get the threads.
         $threads = $threads->get();
 
         return view('threads.index', compact('threads'));
