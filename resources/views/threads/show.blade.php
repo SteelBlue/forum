@@ -4,8 +4,10 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
 
+            <div class="col-md-8">
+
+                {{-- Thread Panel --}}
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
@@ -18,13 +20,9 @@
                     </div>
 
                 </div>
+                {{-- END Thread Panel --}}
 
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-
+                {{-- Thread Replies Panel --}}
                 <div class="panel panel-primary">
 
                     <div class="panel-heading">Replies</div>
@@ -62,7 +60,7 @@
                                         <button type="submit" class="btn btn-primary">Reply</button>
                                     </div>
                                 </form>
-                                
+
                             </div>
                         </div>
                     @else
@@ -70,10 +68,31 @@
                             <span class="text-center center-block">Please <a href="{{ route('login') }}">sign in</a> to participate in this discussion.</span>
                         </div>
                     @endif
+                </div>
+                {{-- END Thread Replies Panel --}}
+
+            </div>
+
+            <div class="col-md-4">
+
+                {{-- Thread Panel --}}
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <a href="#">{{ $thread->owner->name }}</a> posted:
+                        {{ $thread->title }}
+                    </div>
+
+                    <div class="panel-body">
+                        {{ $thread->body  }}
+                    </div>
 
                 </div>
+                {{-- END Thread Panel --}}
+
             </div>
 
         </div>
+
     </div>
 @endsection
