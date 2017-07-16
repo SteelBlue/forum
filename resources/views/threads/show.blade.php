@@ -11,7 +11,6 @@
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
-                        <a href="#">{{ $thread->owner->name }}</a> posted: 
                         {{ $thread->title }}
                     </div>
 
