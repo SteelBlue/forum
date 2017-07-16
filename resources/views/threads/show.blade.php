@@ -85,9 +85,16 @@
                             By: <a href="#">{{ $thread->owner->name }}</a><br>
                         </p>
 
-                        <p>
-                            Thread Replies: {{ $thread->replies_count }}
-                        </p>
+                        @if ($thread->replies_count)
+                            <p>
+                                Thread {{ str_plural('Reply', $thread->replies_count) }}: {{ $thread->replies_count }}
+                            </p>
+                        @else
+                            <p>
+                                <strong>No Replies</strong>
+                            </p>
+                        @endif
+
                     </div>
 
                 </div>
