@@ -82,7 +82,11 @@
                     <div class="panel-body">
                         <p>
                             This thread was published {{ $thread->created_at->diffForHumans() }}<br>
-                            By: <a href="#">{{ $thread->owner->name }}</a>
+                            By: <a href="#">{{ $thread->owner->name }}</a><br>
+                        </p>
+
+                        <p>
+                            Thread Replies: {{ $thread->replies->count() }}
                         </p>
                     </div>
 
