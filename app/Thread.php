@@ -11,6 +11,11 @@ class Thread extends Model
     protected static function boot()
     {
         parent::boot();
+
+        // Set the Global Scope, count of replies for a thread.
+        static::addGlobalScope('replyCount', function ($builder) {
+            $builder->withCount('replies');
+        });
     }
 
     public function path()
