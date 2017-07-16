@@ -86,7 +86,7 @@
                         </p>
 
                         <p>
-                            Thread Replies: {{ $thread->replies->count() }}
+                            Thread Replies: {{ $thread->replies()->count() }}
                         </p>
                     </div>
 
