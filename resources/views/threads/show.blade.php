@@ -75,20 +75,20 @@
 
             <div class="col-md-4">
 
-                {{-- Thread Panel --}}
+                {{-- Sidebar Panel --}}
                 <div class="panel panel-default">
 
-                    <div class="panel-heading">
-                        <a href="#">{{ $thread->owner->name }}</a> posted:
-                        {{ $thread->title }}
-                    </div>
+                    <div class="panel-heading">Thread Details</div>
 
                     <div class="panel-body">
-                        {{ $thread->body  }}
+                        <p>
+                            This thread was published {{ $thread->created_at->diffForHumans() }}<br>
+                            By: <a href="#">{{ $thread->owner->name }}</a>
+                        </p>
                     </div>
 
                 </div>
-                {{-- END Thread Panel --}}
+                {{-- END Sidebar Panel --}}
 
             </div>
 
