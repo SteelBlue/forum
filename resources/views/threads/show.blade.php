@@ -32,9 +32,16 @@
                         <div class="col-md-10 col-md-offset-1">
 
                             @if (count($thread->replies))
-                                @foreach ($thread->replies as $reply)
+
+                                {{-- Replies Loop --}}
+                                @foreach ($replies as $reply)
                                     @include ('threads.partials.reply')
                                 @endforeach
+                                {{-- END Replies Loop--}}
+
+                                {{-- Replies Pagination --}}
+                                {{ $replies->links() }}
+                                {{-- END Replies Pagination --}}
                             @else
                                 <p>Currently there are not replies to this thread.</p>
                             @endif
