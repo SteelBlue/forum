@@ -28,6 +28,11 @@ class Thread extends Model
         return $this->hasMany(Reply::class);
     }
 
+    public function getReplyCountAttribute()
+    {
+        return $this->replies()->count;
+    }
+
     public function channel()
     {
         return $this->belongsTo(Channel::class);
