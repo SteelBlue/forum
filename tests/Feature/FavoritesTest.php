@@ -12,6 +12,9 @@ class FavoritesTest extends TestCase
     /** @test */
     public function guests_can_not_favorite_anything()
     {
+        // Use ExceptionHandling
+        $this->withExceptionHandling();
+        
         // If guest tries to post to a "favorite" endpoint.
         $this->post('/replies/1/favorites')
             ->assertRedirect('login');
