@@ -39,6 +39,18 @@ class FavoritesTest extends TestCase
     /** @test */
     public function an_authenticated_user_may_only_favorite_a_reply_once()
     {
-        
+        // Sign in a user.
+        $this->signIn();
+
+        // Create a reply, which will also create a thread.
+        $reply = create('App\Reply');
+
+        // First post to a "favorite" endpoint.
+        $this->post('/replies/' . $reply->id . '/favorites');
+        // Second post to a "favorite" endpoint.
+        $this->post('/replies/' . $reply->id . '/favorites');
+
+        // It should be recorded in the database.
+        $this->assertCount(1, $reply->favorites);
     }
 }
