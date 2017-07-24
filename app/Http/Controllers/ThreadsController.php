@@ -27,6 +27,11 @@ class ThreadsController extends Controller
         // Get the threads.
         $threads = $this->getThreads($channel, $filters);
 
+        // If json response is requested.
+        if (request()->wantsJson()) {
+            return $threads;
+        }
+
         return view('threads.index', compact('threads'));
     }
 
