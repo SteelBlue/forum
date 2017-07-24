@@ -30,4 +30,6 @@ class Reply extends Model
             return $this->favorites()->create($attributes);
         }
     }
+
+
 }
