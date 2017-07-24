@@ -48,5 +48,13 @@ class Reply extends Model
         }
     }
 
-
+    /**
+     * Check if current reply is favorited.
+     * 
+     * @return mixed
+     */
+    public function isFavorited()
+    {
+        return $this->favorites()->where('user_id', auth()->id())->exists();
+    }
 }
