@@ -68,4 +68,9 @@ class ReadThreadsTest extends TestCase
             ->assertSee($threadByJohnDoe->title)
             ->assertDontSee($threadNotByJohnDoe->title);
     }
+
+    /** @test */
+    public function a_user_can_filter_threads_by_popularity()
+    {
+    }
 }
