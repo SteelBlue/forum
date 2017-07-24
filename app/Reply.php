@@ -23,9 +23,11 @@ class Reply extends Model
      */
     public function favorite()
     {
+        $attributes = ['user_id' => auth()->id()];
+
         // Check if user has not favorited the reply.
-        if (!$this->favorites()->where(['user_id' => auth()->id()])->exists()) {
-            $this->favorites()->create(['user_id' => auth()->id()]);
+        if (!$this->favorites()->where($attributes)->exists()) {
+            $this->favorites()->create($attributes);
         }
     }
 }
