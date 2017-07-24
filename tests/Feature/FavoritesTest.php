@@ -45,10 +45,14 @@ class FavoritesTest extends TestCase
         // Create a reply, which will also create a thread.
         $reply = create('App\Reply');
 
-        // First post to a "favorite" endpoint.
-        $this->post('/replies/' . $reply->id . '/favorites');
-        // Second post to a "favorite" endpoint.
-        $this->post('/replies/' . $reply->id . '/favorites');
+        try {
+            // First post to a "favorite" endpoint.
+            $this->post('/replies/' . $reply->id . '/favorites');
+            // Second post to a "favorite" endpoint.
+            $this->post('/replies/' . $reply->id . '/favorites');
+        } catch (\Exception $e) {
+            $this->fail('Did not expect to insert the same record set twice.');
+        }
 
         // It should be recorded in the database.
         $this->assertCount(1, $reply->favorites);
