@@ -128,7 +128,7 @@ class ThreadsController extends Controller
     public function getThreads(Channel $channel, ThreadFilters $filters)
     {
         // Fetch latest threads, sorted by latest, with filters.
-        $threads = Thread::latest()->filter($filters);
+        $threads = Thread::with('channel')->latest()->filter($filters);
 
         // Fetch threads by channel.
         if ($channel->exists) {
