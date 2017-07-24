@@ -7,14 +7,20 @@ use Illuminate\Http\Request;
 
 class ThreadFilters extends Filters
 {
-    protected $filters = ['by'];
+    /**
+     * Registered filters to operate upon.
+     *
+     * @var array
+     */
+    protected $filters = ['by', 'popular'];
+
     /**
      * Filter the query by a given username.
      *
      * @param  string $username
      * @return mixed
      */
-    public function by($username)
+    protected function by($username)
     {
         // Get the User from the $username.
         $user = User::where('name', $username)->firstOrFail();
