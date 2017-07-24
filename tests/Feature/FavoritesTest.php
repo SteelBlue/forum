@@ -25,7 +25,7 @@ class FavoritesTest extends TestCase
     {
         // Sign in a user.
         $this->signIn();
-        
+
         // Create a reply, which will also create a thread.
         $reply = create('App\Reply');
 
