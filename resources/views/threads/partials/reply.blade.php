@@ -1,7 +1,9 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="level">
-            <a href="#">{{ $reply->owner->name }}</a> said {{ $reply->created_at->diffForHumans()  }}...
+            <h5 class="flex">
+                <a href="#">{{ $reply->owner->name }}</a> said {{ $reply->created_at->diffForHumans()  }}...
+            </h5>
 
             <div>
                 <form action="">
