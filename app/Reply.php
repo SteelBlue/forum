@@ -19,7 +19,7 @@ class Reply extends Model
     }
 
     /**
-     * Favorite a reply.
+     * Favorite the current reply.
      */
     public function favorite()
     {
