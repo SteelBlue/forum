@@ -74,6 +74,9 @@ class ReadThreadsTest extends TestCase
     {
         // Given we have 3 threads.
         // With 2 replies, 3 replies, and 0 replies, respectively.
+        $threadWithTwoReplies = create('App\Thread');
+        create('App\Reply', ['thread_id' => $threadWithTwoReplies->id], 2);
+
         // When I filter all threads by popularity.
         $response = $this->getJson('threads?popularity=1')->json();
 
