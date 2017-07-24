@@ -14,7 +14,7 @@ class FavoritesTest extends TestCase
     {
         // Use ExceptionHandling
         $this->withExceptionHandling();
-        
+
         // If guest tries to post to a "favorite" endpoint.
         $this->post('/replies/1/favorites')
             ->assertRedirect('login');
