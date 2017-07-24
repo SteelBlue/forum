@@ -36,6 +36,10 @@ class ThreadFilters extends Filters
      */
     protected function popular()
     {
+        // Remove any existing order_by from the query.
+        $this->builder->getQuery()->orders = [];
+
+        // Fetch the threads, by popularity.
         $this->builder->orderBy('replies_count', 'desc');
     }
 }
