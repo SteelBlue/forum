@@ -6,6 +6,8 @@
             </h5>
 
             <div>
+                {{ $reply->favorites()->count() }}
+                
                 <form method="POST" action="/replies/{{ $reply->id }}/favorites">
                     {{ csrf_field() }}
 
