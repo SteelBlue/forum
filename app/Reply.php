@@ -50,7 +50,7 @@ class Reply extends Model
 
     /**
      * Check if current reply is favorited.
-     * 
+     *
      * @return mixed
      */
     public function isFavorited()
