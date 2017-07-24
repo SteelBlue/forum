@@ -72,5 +72,9 @@ class ReadThreadsTest extends TestCase
     /** @test */
     public function a_user_can_filter_threads_by_popularity()
     {
+        // Given we have 3 threads.
+        // With 2 replies, 3 replies, and 0 replies, respectively.
+        // When I filter all threads by popularity.
+        // Then they should be returned from most replies to least.
     }
 }
