@@ -7,7 +7,7 @@
 
             <div>
                 <form method="POST" action="/replies/{{ $reply->id }}/favorites">
-                    {{ csrf_token() }}
+                    {{ csrf_field() }}
 
                     <button type="submit" class="btn btn-default">Favorite</button>
                 </form>
