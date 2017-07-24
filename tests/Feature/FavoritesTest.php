@@ -12,9 +12,9 @@ class FavoritesTest extends TestCase
     /** @test */
     public function an_authenticated_user_can_favorite_any_reply()
     {
-        // Create a reply.
+        // Create a reply, which will also create a thread.
         $reply = create('App\Reply');
-        
+
         // If I post to a "favorite" endpoint.
         $this->post('/replies/' . $reply->id . '/favorites');
 
