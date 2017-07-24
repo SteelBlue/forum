@@ -27,7 +27,7 @@ class Reply extends Model
 
         // Check if user has not favorited the reply.
         if (!$this->favorites()->where($attributes)->exists()) {
-            $this->favorites()->create($attributes);
+            return $this->favorites()->create($attributes);
         }
     }
 }
