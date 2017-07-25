@@ -13,6 +13,11 @@ class Reply extends Model
      */
     protected $guarded = [];
 
+    /**
+     * 
+     *
+     * @var array
+     */
     protected $with = ['owner'];
 
     /**
