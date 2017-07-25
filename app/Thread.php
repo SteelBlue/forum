@@ -54,13 +54,15 @@ class Thread extends Model
     /**
      * A thread may have many replies.
      * Return with a count for the favorites relationship.
+     * Return with the owner of the reply.
      *
      * @return mixed
      */
     public function replies()
     {
         return $this->hasMany(Reply::class)
-            ->withCount('favorites');
+            ->withCount('favorites')
+            ->with('owner');
     }
 
     /**
