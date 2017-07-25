@@ -56,7 +56,7 @@ class Reply extends Model
     }
 
     /**
-     * Check if current reply is favorited.
+     * Determine if the current reply has been favorited.
      *
      * @return mixed
      */
