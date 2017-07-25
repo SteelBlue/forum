@@ -53,6 +53,7 @@ class Thread extends Model
 
     /**
      * A thread may have many replies.
+     * Return with a count for the favorites relationship.
      *
      * @return mixed
      */
