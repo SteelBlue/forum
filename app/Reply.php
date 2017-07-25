@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
+    use Favoritable;
+
     /**
      * Don't auto-apply mass assignment protection.
      *
