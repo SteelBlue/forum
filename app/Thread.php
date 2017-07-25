@@ -18,7 +18,7 @@ class Thread extends Model
      *
      * @var array
      */
-    protected $with = ['owner'];
+    protected $with = ['owner', 'channel'];
 
     /**
      * Boot the model.
