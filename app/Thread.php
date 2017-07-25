@@ -8,6 +8,9 @@ class Thread extends Model
 {
     protected $guarded = [];
 
+    /**
+     * Boot
+     */
     protected static function boot()
     {
         parent::boot();
@@ -18,32 +21,64 @@ class Thread extends Model
         });
     }
 
+    /**
+     * Get a string path for the thread.
+     *
+     * @return string
+     */
     public function path()
     {
         return "/threads/{$this->channel->slug}/{$this->id}";
     }
 
+    /**
+     * Add a reply to the thread.
+     *
+     * @param $reply
+     */
     public function addReply($reply)
     {
         $this->replies()->create($reply);
     }
 
+    /**
+     * A thread belongs to a creator.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    /**
+     * A thread may have many replies.
+     *
+     * @return mixed
+     */
     public function replies()
     {
         return $this->hasMany(Reply::class)
             ->withCount('favorites');
     }
 
+    /**
+     * A thread is assigned a channel.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function channel()
     {
         return $this->belongsTo(Channel::class);
     }
 
+    /**
+     * Apply all relevant thread filters.
+     *
+     * @param $query
+     * @param $filters
+     * @return mixed
+     */
     public function scopeFilter($query, $filters)
     {
         return $filters->apply($query);
