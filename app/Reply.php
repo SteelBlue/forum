@@ -58,10 +58,10 @@ class Reply extends Model
     /**
      * Determine if the current reply has been favorited.
      *
-     * @return mixed
+     * @return boolean
      */
     public function isFavorited()
     {
-        return $this->favorites->where('user_id', auth()->id())->count();
+        return !! $this->favorites->where('user_id', auth()->id())->count();
     }
 }
