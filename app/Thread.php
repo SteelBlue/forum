@@ -14,6 +14,13 @@ class Thread extends Model
     protected $guarded = [];
 
     /**
+     * 
+     *
+     * @var array
+     */
+    protected $with = ['owner'];
+
+    /**
      * Boot the model.
      */
     protected static function boot()
