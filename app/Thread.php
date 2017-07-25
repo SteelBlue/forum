@@ -18,7 +18,7 @@ class Thread extends Model
      *
      * @var array
      */
-//    protected $with = ['owner'];
+    protected $with = ['owner'];
 
     /**
      * Boot the model.
@@ -30,11 +30,6 @@ class Thread extends Model
         // Set the Global Scope, count of replies for a thread.
         static::addGlobalScope('replyCount', function ($builder) {
             $builder->withCount('replies');
-        });
-
-        // Set the Global Scope, owner for a thread.
-        static::addGlobalScope('owner', function ($builder) {
-            $builder->with('owner');
         });
     }
 
