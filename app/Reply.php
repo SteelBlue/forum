@@ -13,6 +13,8 @@ class Reply extends Model
      */
     protected $guarded = [];
 
+    protected $with = ['owner'];
+
     /**
      * A reply has an owner.
      *
